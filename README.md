@@ -19,6 +19,7 @@ My Setup - Arch Linux
 - [**Installation**](#installation)
   - [Install the Base Arch Linux](#install-base)
   - [Configure the System](#install-conf)
+  - [Install Extra Packages from Repository](#install-repo)
   - [Install the Boot Loader](#install-boot)
 
 ---
