@@ -65,5 +65,16 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# android development setup
+export ANDROID_SDK_ROOT="$HOME/.android/sdk"
+export ANDROID_HOME="$HOME/.android/sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
+
+emulator() {
+	pushd $ANDROID_HOME/emulator
+	./emulator "$@"
+	popd
+}
+
 # other stuff ...
 export GPG_TTY=$(tty)
