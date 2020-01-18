@@ -45,7 +45,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+    PS1="[\[\033[36m\]μ\[\033[00m\] \[\033[35m\]\W\[\033[00m\]]\$(git branch 2>/dev/null | grep '^*' | colrm 1 2 | xargs -I{} echo -ne '[\033[37m{}\033[00m]')# "
 else
     PS1='\u@\h:\W\$ '
 fi
@@ -65,16 +65,8 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# android development setup
-export ANDROID_SDK_ROOT="$HOME/.android/sdk"
-export ANDROID_HOME="$HOME/.android/sdk"
-export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools"
-
-emulator() {
-	pushd $ANDROID_HOME/emulator
-	./emulator "$@"
-	popd
-}
+type nvim >/dev/null 2>&1 && EDITOR="nvim" || EDITOR="vim"
+export EDITOR
 
 # other stuff ...
 export GPG_TTY=$(tty)
