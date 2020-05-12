@@ -48,16 +48,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="[\[\033[36m\]μ\[\033[00m\] \[\033[35m\]\W\[\033[00m\]]\$(git branch 2>/dev/null | grep '^*' | colrm 1 2 | xargs -I{} echo -ne '[\033[37m{}\033[00m]')# "
+    PS1='[\[\033[36m\]μ\[\033[00m\] \[\033[35m\]\W\[\033[00m\]]$(declare -F | grep -q __git_ps1$ && __git_ps1 "[%s]")$ '
 else
-    PS1='\u@\h:\W\$ '
+    PS1='[μ \W]\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;\u@\h: \W\a\]$PS1"
+    PS1="\[\e]0;\u at \h:\W\a\]$PS1"
     ;;
 *)
     ;;
