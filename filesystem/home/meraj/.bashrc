@@ -68,8 +68,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-type nvim >/dev/null 2>&1 && EDITOR="nvim" || EDITOR="vim"
-export EDITOR
+export EDITOR="vim"
 
 # other stuff ...
 export GPG_TTY=$(tty)
