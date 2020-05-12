@@ -5,6 +5,9 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# source system profile
+[[ -f /etc/profile ]] && . /etc/profile
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
